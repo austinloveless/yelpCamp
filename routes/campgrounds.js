@@ -82,6 +82,11 @@ router.put("/campgrounds/:id", (req, res) => {
   );
 });
 
+//destroy route
+router.delete("/campgrounds/:id", (req, res) => {
+  res.send("delete");
+});
+
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
