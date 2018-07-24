@@ -3,12 +3,10 @@ const router = express.Router();
 const passport = require("passport");
 const User = require("../models/user");
 
-//route route
+//Route Route
 router.get("/", (req, res) => {
   res.render("landing");
 });
-
-//register route
 router.get("/register", (req, res) => {
   res.render("register");
 });
@@ -18,10 +16,12 @@ router.post("/register", (req, res) => {
   var newUser = new User({ username: req.body.username });
   User.register(newUser, req.body.password, (err, user) => {
     if (err) {
+      req.flash("error", err.message);
       console.log(err);
       return res.render("register");
     }
     passport.authenticate("local")(req, res, () => {
+      req.flash("success", "Welcome to YelpCamp!");
       res.redirect("/campgrounds");
     });
   });
@@ -39,21 +39,18 @@ router.post(
     successRedirect: "/campgrounds",
     failureRedirect: "/login"
   }),
-  (req, res) => {}
+  (req, res) => {
+    req.flash("success", "Welcome to YelpCamp!");
+  }
 );
 
 //logout route logic
 router.get("/logout", (req, res) => {
   req.logout();
+  req.flash("success", "Logged you out!");
   res.redirect("/campgrounds");
 });
 
-//middleware
-function isLoggedIn(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/login");
-}
+//Middle-Ware
 
 module.exports = router;
