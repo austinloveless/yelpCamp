@@ -1,10 +1,11 @@
 {
   "name": "yelpCamp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Campground sharing application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",
@@ -18,8 +19,8 @@
     "method-override": "^3.0.0",
     "moment": "^2.22.2",
     "mongodb": "^3.1.1",
-    "mongoose": "^5.2.3",
-    "nodemon": "^1.18.1",
+    "mongoose": "^5.2.5",
+    "nodemon": "^1.18.3",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^5.0.1"
