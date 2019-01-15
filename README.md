@@ -1,4 +1,4 @@
-# yelpCamp
+# YelpCamp
 
 YelpCamp is a campground application where users can signup and view campgrounds in their area, create campgrounds, and interact with other users. 
 
